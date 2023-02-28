@@ -1,20 +1,21 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
+<ion-header>
+    <ion-toolbar color="primary">
+        <ion-title>Movie App</ion-title>
+    </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content>
+    <ion-item class="tag-home" lines="none" color="medium">
+        <ion-icon slot="end" name="trending-up"></ion-icon>
+        <ion-label><strong>Trending</strong></ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/movies']" routerLinkActive="router-link-active">Top Rated Movies</ion-item>
+    <ion-item [routerLink]="['/movies/trending/day']" routerLinkActive="router-link-active">Trending Last 24h</ion-item>
+    <ion-item [routerLink]="['/movies/trending/week']" routerLinkActive="router-link-active">Trending Last Week</ion-item>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+    <ion-item class="tag-home" lines="none" color="medium">
+        <ion-icon slot="end" name="funnel-outline"></ion-icon>
+        <ion-label><strong>Genres</strong></ion-label>
+    </ion-item>
+    <ion-item *ngFor="let g of genres" [routerLink]="['/movies/genre/'+g.id+'/'+g.name]">{{ g.name }}</ion-item>
 </ion-content>
